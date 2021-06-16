@@ -1,6 +1,6 @@
 # A cache for resources
 extends Object
-class_name ResourceCache
+class_name ESCResourceCache
 
 var thread : Thread
 var mutex : Mutex
