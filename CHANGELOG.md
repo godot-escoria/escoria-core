@@ -1,3 +1,12 @@
+## [4.0.0-alpha.2](https://github.com/godot-escoria/escoria-core/compare/v0.0.0...v4.0.0-alpha.2) (2021-10-17)
+
+
+### Features
+
+* Added version bump to plugin.cfg ([bce02eb](https://github.com/godot-escoria/escoria-core/commit/bce02eba237be3bee3c7bc3d843cb370a50c155a))
+
+
+
 ## [4.0.0-alpha.1](https://github.com/godot-escoria/escoria-core/compare/v0.0.0...v4.0.0-alpha.1) (2021-10-17)
 
 
