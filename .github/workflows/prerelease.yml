@@ -33,6 +33,9 @@ jobs:
               CHANGELOG=$(cat CHANGELOG.md)
           fi
           echo -e "${{steps.calculate_version.outputs.changelog}}\n\n${CHANGELOG}" > CHANGELOG.md
+      - name: "Update version in plugin.cfg"
+        run: |
+          sed -i -re 's/version=".+$/version="${{ steps.calculate_version.outputs.new_version }}"/gi' $(find . -name "plugin.cfg")
       - name: "Commit"
         uses: EndBug/add-and-commit@v7.2.1
         with:
