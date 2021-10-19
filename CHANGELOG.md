@@ -1,3 +1,12 @@
+## [4.0.0-alpha.3](https://github.com/godot-escoria/escoria-core/compare/v0.0.0...v4.0.0-alpha.3) (2021-10-19)
+
+
+### Bug Fixes
+
+* Fixed Assetlib id ([0e0753d](https://github.com/godot-escoria/escoria-core/commit/0e0753da67cae6d5430feab411249bb49556e30c))
+
+
+
 ## [4.0.0-alpha.2](https://github.com/godot-escoria/escoria-core/compare/v0.0.0...v4.0.0-alpha.2) (2021-10-17)
 
 
