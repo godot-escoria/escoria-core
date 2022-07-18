@@ -300,7 +300,7 @@ func _on_mouse_entered_item(item: ESCItem) -> void:
 		hotspot_focused = ""
 		escoria.main.current_scene.game.element_unfocused()
 		return
-	
+
 	if object and not object.interactive:
 		return
 	if object and object.node is ESCPlayer and not (object.node as ESCPlayer).selectable:
@@ -335,7 +335,7 @@ func _on_mouse_exited_item(item: ESCItem) -> void:
 		hotspot_focused = ""
 		escoria.main.current_scene.game.element_unfocused()
 		return
-	
+
 	if object and not object.interactive:
 		return
 	if object and object.node is ESCPlayer and not (object.node as ESCPlayer).selectable:
@@ -366,11 +366,11 @@ func _on_mouse_left_clicked_item(item: ESCItem, event: InputEvent) -> void:
 			actual_item = item
 		else:
 			actual_item = hover_stack.back()
-		
+	
 		if actual_item == null:
 			escoria.logger.error(
 				self,
-				"Clicked item %s cannot be activated (player not selectable or not interactive). " 
+				"Clicked item %s cannot be activated (player not selectable or not interactive). "
 						% [item.global_id, event] +
 				"No valid item found in the items stack. Action cancelled."
 			)
@@ -405,16 +405,16 @@ func _on_mouse_left_double_clicked_item(
 			actual_item = item
 		else:
 			actual_item = hover_stack.back()
-		
+	
 		if actual_item == null:
 			escoria.logger.error(
 				self,
-				"Clicked item %s cannot be activated (player not selectable or not interactive). " 
+				"Clicked item %s cannot be activated (player not selectable or not interactive). "
 						% [item.global_id, event] +
 				"No valid item found in the items stack. Action cancelled."
 			)
 			return
-			
+		
 		# We check if the clicked object is ESCPlayer and not selectable. If so
 		# we consider we clicked through it.
 		var object: ESCObject = escoria.object_manager.get_object(item.global_id)
@@ -446,13 +446,13 @@ func _on_mouse_right_clicked_item(item: ESCItem, event: InputEvent) -> void:
 			actual_item = item
 		else:
 			actual_item = hover_stack.back()
-		
+	
 		# We check if the clicked object is ESCPlayer and not selectable. If so
 		# we consider we clicked through it.
 		var object: ESCObject = escoria.object_manager.get_object(item.global_id)
 		if object.node is ESCPlayer and not (object.node as ESCPlayer).selectable:
 			actual_item = hover_stack.back()
-		
+	
 		if actual_item == null:
 			if event.position:
 				(escoria.main.current_scene.game as ESCGame).right_click_on_bg(event.position)
