@@ -1,6 +1,6 @@
 # Escoria Core Addon
 
-![[escoria-core/addons/escoria-core/design/escoria-logo-small.png]]
+![Escoria logo](addons/escoria-core/design/escoria-logo-small.png)
 
 [![Join our Discord](https://img.shields.io/discord/884336424780984330.svg?label=Join%20our%20Discord&logo=Discord&colorB=7289da&style=for-the-badge)](https://discord.com/invite/jMxJjuBY5Z)
 
