@@ -28,39 +28,72 @@ func apply_settings() -> void:
 			self,
 			"******* settings loaded"
 		)
+		
+		var bus_master := AudioServer.get_bus_index(escoria.BUS_MASTER)
+		var bus_sfx := AudioServer.get_bus_index(escoria.BUS_SFX)
+		var bus_music := AudioServer.get_bus_index(escoria.BUS_MUSIC)
+		var bus_speech := AudioServer.get_bus_index(escoria.BUS_SPEECH)
 
-		AudioServer.set_bus_volume_db(
-			AudioServer.get_bus_index(escoria.BUS_MASTER),
-			linear2db(
-				ESCProjectSettingsManager.get_setting(
-					ESCProjectSettingsManager.MASTER_VOLUME
+		if bus_master >= 0:
+			AudioServer.set_bus_volume_db(
+				bus_master,
+				linear2db(
+					ESCProjectSettingsManager.get_setting(
+						ESCProjectSettingsManager.MASTER_VOLUME
+					)
 				)
 			)
-		)
-		AudioServer.set_bus_volume_db(
-			AudioServer.get_bus_index(escoria.BUS_SFX),
-			linear2db(
-				ESCProjectSettingsManager.get_setting(
-					ESCProjectSettingsManager.SFX_VOLUME
+		else:
+			escoria.logger.error(
+				self,
+				"Missing audio bus %s!" % escoria.BUS_MASTER
+			)
+		
+		if bus_sfx >= 0:
+			AudioServer.set_bus_volume_db(
+				bus_sfx,
+				linear2db(
+					ESCProjectSettingsManager.get_setting(
+						ESCProjectSettingsManager.SFX_VOLUME
+					)
 				)
 			)
-		)
-		AudioServer.set_bus_volume_db(
-			AudioServer.get_bus_index(escoria.BUS_MUSIC),
-			linear2db(
-				ESCProjectSettingsManager.get_setting(
-					ESCProjectSettingsManager.MUSIC_VOLUME
+		else:
+			escoria.logger.error(
+				self,
+				"Missing audio bus %s!" % escoria.BUS_SFX
+			)
+		
+		if bus_music >= 0:
+			AudioServer.set_bus_volume_db(
+				bus_music,
+				linear2db(
+					ESCProjectSettingsManager.get_setting(
+						ESCProjectSettingsManager.MUSIC_VOLUME
+					)
 				)
 			)
-		)
-		AudioServer.set_bus_volume_db(
-			AudioServer.get_bus_index(escoria.BUS_SPEECH),
-			linear2db(
-				ESCProjectSettingsManager.get_setting(
-					ESCProjectSettingsManager.SPEECH_VOLUME
+		else:
+			escoria.logger.error(
+				self,
+				"Missing audio bus %s!" % escoria.BUS_MUSIC
+			)
+		
+		if bus_speech >= 0:
+			AudioServer.set_bus_volume_db(
+				bus_speech,
+				linear2db(
+					ESCProjectSettingsManager.get_setting(
+						ESCProjectSettingsManager.SPEECH_VOLUME
+					)
 				)
 			)
-		)
+		else:
+			escoria.logger.error(
+				self,
+				"Missing audio bus %s!" % escoria.BUS_SPEECH
+			)
+		
 		OS.window_fullscreen = ESCProjectSettingsManager.get_setting(
 			ESCProjectSettingsManager.FULLSCREEN
 		)
